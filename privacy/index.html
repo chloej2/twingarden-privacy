@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>TwinGarden Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8f5ec;
+      --paper: #fffdf6;
+      --ink: #17281d;
+      --muted: #58685e;
+      --green: #2f744f;
+      --green-soft: #dfeee2;
+      --line: #d8d2c3;
+      --accent: #c7e9d0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at top right, rgba(139, 204, 151, 0.35), transparent 34rem),
+        var(--bg);
+      color: var(--ink);
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 253, 246, 0.76);
+      backdrop-filter: blur(12px);
+    }
+
+    .wrap {
+      width: min(940px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 56px 0 36px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .leaf {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green-soft);
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(40px, 7vw, 70px);
+      line-height: 0.98;
+      letter-spacing: 0;
+      color: #12351f;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 20px 0 0;
+      font-size: 20px;
+      color: var(--muted);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 5px 12px;
+      border: 1px solid #b9d9bf;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: #2b5f43;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    main {
+      padding: 36px 0 72px;
+    }
+
+    .card {
+      padding: clamp(24px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 253, 246, 0.92);
+      box-shadow: 0 24px 80px rgba(42, 63, 47, 0.08);
+    }
+
+    nav {
+      margin-bottom: 30px;
+      padding: 18px;
+      border: 1px solid #d7e5d8;
+      border-radius: 14px;
+      background: #f1f8ef;
+    }
+
+    nav h2 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    nav ol {
+      columns: 2;
+      margin-bottom: 0;
+      padding-left: 22px;
+    }
+
+    section {
+      padding-top: 18px;
+      border-top: 1px solid #ebe4d5;
+      margin-top: 26px;
+    }
+
+    section:first-of-type {
+      border-top: 0;
+      margin-top: 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 26px;
+      line-height: 1.2;
+      letter-spacing: 0;
+      color: #183827;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 18px;
+      color: #244b35;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ul {
+      margin: 0 0 16px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    a {
+      color: #276848;
+      font-weight: 750;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    .notice {
+      padding: 16px 18px;
+      border: 1px solid #bfdcc4;
+      border-radius: 14px;
+      margin: 20px 0;
+      background: #eef8ee;
+    }
+
+    footer {
+      padding: 36px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 28px, 940px);
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      nav ol {
+        columns: 1;
+      }
+
+      .card {
+        border-radius: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div class="brand"><span class="leaf" aria-hidden="true">P</span><span>TwinGarden</span></div>
+      <h1>Privacy Policy</h1>
+      <p class="subtitle">This policy explains how TwinGarden handles information used to provide garden planning, plant tracking, AI guidance, quizzes, subscriptions, and app support.</p>
+      <div class="meta" aria-label="Policy metadata">
+        <span class="chip">Effective date: July 2, 2026</span>
+        <span class="chip">App: TwinGarden</span>
+        <span class="chip">Package: com.gardentwin.app</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <article class="card">
+        <nav aria-label="Privacy policy sections">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#scope">Scope</a></li>
+            <li><a href="#information">Information we collect</a></li>
+            <li><a href="#use">How we use information</a></li>
+            <li><a href="#sharing">Service providers and sharing</a></li>
+            <li><a href="#ai">AI features</a></li>
+            <li><a href="#choices">Your choices</a></li>
+            <li><a href="#retention">Retention and deletion</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#children">Children</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ol>
+        </nav>
+
+        <section id="scope">
+          <h2>1. Scope</h2>
+          <p>This Privacy Policy applies to TwinGarden, an Android app that helps users manage garden sites, plants, records, photos, reminders, quizzes, and AI-assisted plant guidance.</p>
+          <p>By using TwinGarden, you agree that your information will be handled as described in this policy. If you do not agree, please do not use the app.</p>
+        </section>
+
+        <section id="information">
+          <h2>2. Information we collect</h2>
+          <p>TwinGarden collects only the information needed to operate the app, personalize gardening guidance, keep your account in sync, process subscriptions, improve reliability, and provide support.</p>
+
+          <h3>Account and profile information</h3>
+          <ul>
+            <li>Email address, authentication identifiers, display name, sign-in provider information, and account status.</li>
+            <li>Onboarding preferences, language and unit settings, gardening interests, experience level, buddy style, and other profile choices you provide.</li>
+          </ul>
+
+          <h3>Garden, site, plant, and journal information</h3>
+          <ul>
+            <li>Garden site names, growing environment, sunlight, growing space, soil or bed details, and related site setup information.</li>
+            <li>Location information you provide or allow the app to use, such as city, approximate location, latitude/longitude, or garden site coordinates for weather and planting guidance.</li>
+            <li>Plants, wishlist items, care actions, task history, growth stage, harvest records, health observations, notes, measurements, and journal entries.</li>
+          </ul>
+
+          <h3>Photos, camera, and plant scans</h3>
+          <ul>
+            <li>Plant photos, scan images, image-derived observations, and related metadata such as capture date, plant, growth stage, or health context.</li>
+            <li>The camera is used only when you choose to scan, capture, validate, or record plant photos.</li>
+          </ul>
+
+          <h3>AI chat, guidance, and quiz activity</h3>
+          <ul>
+            <li>Messages and prompts you send to Pip or plant chat, AI responses, generated summaries, suggested actions, and memory notes you choose to save or that are derived from your messages.</li>
+            <li>Quiz questions, selected answers, correctness, explanations, XP, levels, streaks, feedback, and daily quiz progress.</li>
+          </ul>
+
+          <h3>Subscriptions and purchases</h3>
+          <ul>
+            <li>Subscription entitlement, purchase status, product identifiers, and restore status provided by Google Play Billing and RevenueCat.</li>
+            <li>TwinGarden does not receive your full payment card number from Google Play.</li>
+          </ul>
+
+          <h3>Usage, diagnostics, and device information</h3>
+          <ul>
+            <li>App events such as onboarding completion, plant additions, paywall views, feature usage, analytics opt-in state, and app settings.</li>
+            <li>Device and app information needed for diagnostics, push notifications, issue reports, crash recovery, performance monitoring, and abuse prevention.</li>
+            <li>Firebase Cloud Messaging tokens and notification preferences when push notifications are enabled.</li>
+          </ul>
+        </section>
+
+        <section id="use">
+          <h2>3. How we use information</h2>
+          <p>We use information to:</p>
+          <ul>
+            <li>Create and manage your TwinGarden account.</li>
+            <li>Sync your gardens, sites, plants, photos, notes, quiz progress, subscriptions, and settings across sessions and devices.</li>
+            <li>Provide weather-aware, site-aware, plant-aware, and profile-aware recommendations.</li>
+            <li>Generate AI chat responses, plant summaries, photo observations, quiz questions, and personalized guidance.</li>
+            <li>Send reminders, care notifications, subscription status updates, and app messages you request or allow.</li>
+            <li>Process subscriptions, enforce free-tier and premium limits, and restore purchases.</li>
+            <li>Improve reliability, understand app usage, prevent abuse, troubleshoot issues, and respond to support requests.</li>
+            <li>Comply with legal, safety, security, and platform requirements.</li>
+          </ul>
+          <p class="notice">TwinGarden does not sell your personal information and does not show third-party advertising in the app.</p>
+        </section>
+
+        <section id="sharing">
+          <h2>4. Service providers and sharing</h2>
+          <p>We share information with service providers only as needed to operate TwinGarden. These providers process information on our behalf or as platform providers for services you choose to use.</p>
+          <ul>
+            <li><strong>Supabase</strong> for authentication, database sync, storage, edge functions, and backend app services.</li>
+            <li><strong>Google Play Billing and RevenueCat</strong> for subscription purchase handling, entitlement checks, purchase restore, and customer center features.</li>
+            <li><strong>PostHog</strong> for privacy-conscious product analytics and feature usage measurement, subject to your in-app analytics setting.</li>
+            <li><strong>Firebase Cloud Messaging</strong> for push notification delivery.</li>
+            <li><strong>Weather and location-related services</strong>, such as Open-Meteo, to retrieve weather, forecast, and climate data for the locations you provide.</li>
+            <li><strong>Authentication providers</strong>, such as Google, Facebook, or email/password authentication, when you choose those sign-in methods.</li>
+            <li><strong>AI service providers</strong> used by TwinGarden's backend to generate text, quiz, image-understanding, or plant guidance responses.</li>
+          </ul>
+          <p>We may also disclose information if required by law, to protect users and the app, to investigate misuse, or as part of a business transfer such as a merger or acquisition.</p>
+        </section>
+
+        <section id="ai">
+          <h2>5. AI features</h2>
+          <p>TwinGarden uses AI to help with plant chat, garden buddy responses, plant recommendations, photo observations, growth-stage checks, quiz generation, and garden summaries.</p>
+          <p>When you use AI features, TwinGarden may send relevant context to our backend and AI providers. This context may include your question, selected plant, garden site details, weather context, plant records, journal notes, health logs, and photos if you have chosen to share photos with AI.</p>
+          <p>AI guidance is educational and informational. It is not professional agricultural, medical, legal, financial, or safety advice. You should use your own judgment and seek qualified professional help when needed.</p>
+        </section>
+
+        <section id="choices">
+          <h2>6. Your choices</h2>
+          <ul>
+            <li><strong>Permissions:</strong> You can grant or revoke Android permissions such as location, camera, and notifications in your device settings.</li>
+            <li><strong>Analytics:</strong> You can change the analytics setting inside TwinGarden settings when available.</li>
+            <li><strong>AI photo sharing:</strong> You can choose whether plant photos may be shared with AI for photo-based guidance.</li>
+            <li><strong>Account information:</strong> You can update many profile and garden details in the app.</li>
+            <li><strong>Notifications:</strong> You can change notification preferences in the app or through Android system settings.</li>
+            <li><strong>Subscriptions:</strong> You can manage Google Play subscriptions through Google Play or TwinGarden's subscription management entry point when available.</li>
+          </ul>
+        </section>
+
+        <section id="retention">
+          <h2>7. Retention and deletion</h2>
+          <p>We keep information for as long as needed to provide TwinGarden, maintain your account, preserve your garden history, comply with legal obligations, resolve disputes, prevent abuse, and operate backups.</p>
+          <p>You may request account and data deletion by contacting us at the email address below. We may need to retain limited information for legal, billing, security, fraud-prevention, or backup purposes where permitted or required by law.</p>
+          <p>If you delete photos, plants, sites, journal records, or your account, deletion may not be immediate in all backups or provider systems, but the information will be removed from active systems according to our operational process.</p>
+        </section>
+
+        <section id="security">
+          <h2>8. Security</h2>
+          <p>We use reasonable technical and organizational measures to protect information, including encrypted network connections, authentication controls, provider security features, and access-limited backend systems.</p>
+          <p>No method of transmission or storage is perfectly secure. If you believe your account or data has been compromised, please contact us.</p>
+        </section>
+
+        <section id="children">
+          <h2>9. Children</h2>
+          <p>TwinGarden is not designed for children under 13 and is not directed to children. If you believe a child has provided personal information through TwinGarden, contact us so we can review and delete it where appropriate.</p>
+        </section>
+
+        <section id="international">
+          <h2>10. International processing</h2>
+          <p>Your information may be processed in countries other than the country where you live. Data protection laws may differ across jurisdictions. We use service providers that operate internationally to provide authentication, storage, analytics, AI, billing, notifications, and hosting.</p>
+        </section>
+
+        <section id="changes">
+          <h2>11. Changes to this policy</h2>
+          <p>We may update this Privacy Policy as TwinGarden changes. The effective date at the top of this page shows when the current version took effect. Material changes may be communicated through the app, store listing, or this page.</p>
+        </section>
+
+        <section id="contact">
+          <h2>12. Contact</h2>
+          <p>If you have questions, requests, or concerns about privacy or data deletion, contact TwinGarden at:</p>
+          <p><a href="mailto:chloejoung92@gmail.com">chloejoung92@gmail.com</a></p>
+          <p>Please include "TwinGarden privacy request" in the subject line so we can identify and respond to your request.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; 2026 TwinGarden. All rights reserved.</div>
+  </footer>
+</body>
+</html>
