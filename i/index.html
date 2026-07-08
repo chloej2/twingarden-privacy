@@ -12,39 +12,65 @@
     box-shadow:0 8px 28px rgba(31,61,43,.10); text-align:center; }
   .leaf { font-size:44px; }
   h1 { font-size:22px; margin:12px 0 4px; }
-  p { font-size:15px; line-height:1.5; color:#4a5c50; margin:6px 0; }
+  p { font-size:15px; line-height:1.55; color:#4a5c50; margin:6px 0; }
   .btn { display:block; margin:18px 0 8px; padding:15px; border-radius:16px; background:#2E6B43; color:#fff;
     font-size:16px; font-weight:600; text-decoration:none; }
-  .hint { font-size:13px; color:#7a8a80; margin-top:14px; }
+  .hint { font-size:13.5px; color:#5a6b60; margin-top:14px; line-height:1.6; }
   .en { color:#8a988f; font-size:13px; margin-top:2px; }
   .store { display:inline-block; margin-top:16px; font-size:13px; color:#2E6B43; text-decoration:none; }
+  .banner { display:none; background:#FFF4D6; color:#6b5518; border-radius:14px; padding:12px 14px;
+    font-size:13.5px; line-height:1.6; margin-bottom:8px; }
 </style>
 </head>
 <body>
   <div class="card">
     <div class="leaf">🌱</div>
     <h1>TwinGarden 초대</h1>
-    <p>친구가 자기 화단으로 초대했어요.<br>아래 버튼으로 앱에서 열어보세요.</p>
-    <p class="en">A friend invited you to their garden — open it in the app.</p>
+    <p>친구가 자기 화단으로 초대했어요.</p>
+    <div class="banner" id="inapp-banner">
+      지금 <b>앱 내부 브라우저</b>에서 열려 있어요.<br>
+      우측 상단 <b>⋮ 메뉴 → 다른 브라우저로 열기</b>(Chrome)를 선택하면 앱이 열립니다.
+      <div class="en" style="margin-top:4px">Open this page in Chrome (top-right menu → Open in browser) to launch the app.</div>
+    </div>
     <a class="btn" id="open" href="#">앱에서 열기 · Open in app</a>
-    <p class="hint" id="hint">앱이 안 열리면, 이 링크를 <b>Chrome 같은 기본 브라우저</b>에서 열어주세요.<br>
-      <span class="en">Not opening? Open this link in Chrome (not an in-app browser).</span></p>
+    <p class="hint" id="hint">앱이 안 열리면 이 링크를 <b>Chrome 같은 기본 브라우저</b>에서 열어주세요.
+      <span class="en">Not opening? Open this link in Chrome, not an in-app browser.</span></p>
     <a class="store" href="https://play.google.com/store/apps/details?id=com.gardentwin.app">앱이 아직 없나요? · Get the app</a>
   </div>
 <script>
   (function () {
     var t = new URLSearchParams(window.location.search).get('t') || '';
-    // App Link data URI the installed app is registered to handle (host MUST be the real domain).
-    var appUri = 'https://chloej2.github.io/twingarden-privacy/i/?t=' + encodeURIComponent(t);
-    // intent:// with package pin — opens the installed app even from many in-app webviews.
-    // No browser_fallback_url on purpose: a failed intent should stay on THIS page (with the
-    // manual button + Chrome hint), not dump the user onto an unpublished Play Store listing.
+    var ua = navigator.userAgent || '';
     var intentUri = 'intent://chloej2.github.io/twingarden-privacy/i/?t=' + encodeURIComponent(t)
       + '#Intent;scheme=https;package=com.gardentwin.app;end';
-    function openApp() { window.location.href = intentUri; setTimeout(function(){ /* stay on page */ }, 400); }
+    function openApp() { window.location.href = intentUri; }
     document.getElementById('open').addEventListener('click', function (e) { e.preventDefault(); openApp(); });
-    // Auto-attempt once on load.
-    if (t) { openApp(); }
+
+    var isKakao = /KAKAOTALK/i.test(ua);
+    var isLine  = /\bLine\//i.test(ua);
+    var isOtherInApp = /FBAN|FBAV|Instagram|NAVER|DaumApps|; wv\)|everytimeApp|Band/i.test(ua);
+
+    if (!t) { return; }
+    if (isKakao) {
+      // KakaoTalk in-app browser: force-escape to the external default browser,
+      // which then honours Android App Links and opens the installed app.
+      window.location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(window.location.href);
+      return;
+    }
+    if (isLine) {
+      // Line: append its external-browser flag and reload.
+      var u = window.location.href;
+      window.location.href = u + (u.indexOf('?') > -1 ? '&' : '?') + 'openExternalBrowser=1';
+      return;
+    }
+    if (isOtherInApp) {
+      // Instagram / Facebook / Naver / Daum / generic WebView: can't auto-escape reliably —
+      // show the "open in external browser" instruction banner.
+      document.getElementById('inapp-banner').style.display = 'block';
+      return;
+    }
+    // Real browser (Chrome etc.): App Links usually already intercepted; nudge via intent:// too.
+    openApp();
   })();
 </script>
 </body>
