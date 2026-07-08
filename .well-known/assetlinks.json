@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.gardentwin.app",
+      "sha256_cert_fingerprints": [
+        "6C:C7:DF:A5:1C:46:00:8A:9C:14:A7:CE:F5:38:C5:BA:94:CE:FB:AC:49:50:77:7C:0D:B1:0D:E5:C9:1D:E7:B7"
+      ]
+    }
+  }
+]

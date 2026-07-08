@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>TwinGarden Invite</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8f5ec;
+      --paper: #fffdf6;
+      --ink: #17281d;
+      --muted: #58685e;
+      --green: #2f744f;
+      --green-soft: #dfeee2;
+      --line: #d8d2c3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at top right, rgba(139, 204, 151, 0.35), transparent 34rem),
+        var(--bg);
+      color: var(--ink);
+    }
+
+    main {
+      max-width: 420px;
+      width: 100%;
+      margin: 24px;
+      padding: 40px 28px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 12px 32px rgba(23, 40, 29, 0.08);
+    }
+
+    .emoji {
+      font-size: 48px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 0 0 6px;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 24px;
+    }
+
+    .lang-block + .lang-block {
+      margin-top: 8px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .cta {
+      display: inline-block;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .hint {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    #status {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      min-height: 18px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="emoji">🌱</div>
+    <h1>TwinGarden에서 초대를 받았어요</h1>
+    <p class="sub">You've been invited to TwinGarden</p>
+    <p id="status">앱 여는 중... / Opening the app…</p>
+
+    <div class="lang-block">
+      <a class="cta" id="store-link-ko" href="https://play.google.com/store/apps/details?id=com.gardentwin.app">
+        Play 스토어에서 설치하기
+      </a>
+      <p class="hint">앱이 설치되어 있으면 자동으로 열립니다. 설치 후 이 링크를 다시 눌러주세요.</p>
+    </div>
+
+    <div class="lang-block">
+      <a class="cta" id="store-link-en" href="https://play.google.com/store/apps/details?id=com.gardentwin.app">
+        Get it on Google Play
+      </a>
+      <p class="hint">If TwinGarden is already installed, it opens automatically. After installing, tap this link again.</p>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      // BL-1079 — token arrives as a query param (?t=<token>), NOT a path segment, so
+      // GitHub Pages (a static host with no server-side router) serves this real file
+      // instead of 404ing on /i/<token>. Mirrors InviteTokenParser's expectations on
+      // the Android side (see InviteModels.kt / AndroidManifest pathPrefix).
+      var params = new URLSearchParams(window.location.search);
+      var token = params.get('t');
+      var statusEl = document.getElementById('status');
+
+      if (!token) {
+        statusEl.textContent = '초대 링크가 올바르지 않아요 / Invalid invite link';
+        return;
+      }
+
+      // Best-effort attempt to hand off to the app via an explicit intent (covers
+      // browsers/in-app webviews that ignore Android App Links autoVerify). If the
+      // app is installed and verified, autoVerify="true" already routes the ORIGINAL
+      // https:// tap straight to the app before this page ever loads — this script
+      // only helps the case where verification hasn't happened yet or the click
+      // came from an SNS in-app browser stripping the App Links behavior.
+      var intentUrl =
+        'intent://twingarden-privacy/i/?t=' + encodeURIComponent(token) +
+        '#Intent;scheme=https;package=com.gardentwin.app;S.browser_fallback_url=' +
+        encodeURIComponent('https://play.google.com/store/apps/details?id=com.gardentwin.app') +
+        ';end';
+
+      try {
+        window.location.href = intentUrl;
+      } catch (e) {
+        // Non-Android browser or intent scheme unsupported — fall through to the
+        // static Play Store buttons already on the page.
+      }
+
+      setTimeout(function () {
+        statusEl.textContent = '앱이 설치되어 있지 않다면 아래에서 설치해주세요 / If TwinGarden isn\'t installed, get it below';
+      }, 1500);
+    })();
+  </script>
+</body>
+</html>
